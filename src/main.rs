@@ -8,12 +8,13 @@ mod mouse;
 mod sort_bubble;
 mod sort_selection;
 mod sort_insertion;
+mod sort_quick;
 
 fn main() {
     let mut globals = globals::Globals::new();
     let (mut rl, mut thread) = raylib::init()
         .size(globals.width, globals.height)
-        .title("stuff")
+        .title("rSort")
         .build();
 
     globals.load_font(&mut rl, &mut thread, "fonts/CaskaydiaCove-Bold.ttf", 16);

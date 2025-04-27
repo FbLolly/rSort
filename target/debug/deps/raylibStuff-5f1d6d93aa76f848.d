@@ -1,6 +1,6 @@
-/home/archie/Desktop/cs/RUST/rSort/target/debug/deps/libraylibStuff-5f1d6d93aa76f848.rmeta: src/main.rs src/globals.rs src/algorithm.rs src/menu.rs src/button.rs src/mouse.rs src/sort_bubble.rs src/sort_selection.rs src/sort_insertion.rs Cargo.toml
+/home/archie/Desktop/cs/RUST/rSort/target/debug/deps/libraylibStuff-5f1d6d93aa76f848.rmeta: src/main.rs src/globals.rs src/algorithm.rs src/menu.rs src/button.rs src/mouse.rs src/sort_bubble.rs src/sort_selection.rs src/sort_insertion.rs src/sort_quick.rs Cargo.toml
 
-/home/archie/Desktop/cs/RUST/rSort/target/debug/deps/raylibStuff-5f1d6d93aa76f848.d: src/main.rs src/globals.rs src/algorithm.rs src/menu.rs src/button.rs src/mouse.rs src/sort_bubble.rs src/sort_selection.rs src/sort_insertion.rs Cargo.toml
+/home/archie/Desktop/cs/RUST/rSort/target/debug/deps/raylibStuff-5f1d6d93aa76f848.d: src/main.rs src/globals.rs src/algorithm.rs src/menu.rs src/button.rs src/mouse.rs src/sort_bubble.rs src/sort_selection.rs src/sort_insertion.rs src/sort_quick.rs Cargo.toml
 
 src/main.rs:
 src/globals.rs:
@@ -11,6 +11,7 @@ src/mouse.rs:
 src/sort_bubble.rs:
 src/sort_selection.rs:
 src/sort_insertion.rs:
+src/sort_quick.rs:
 Cargo.toml:
 
 # env-dep:CLIPPY_ARGS=--no-deps__CLIPPY_HACKERY__
