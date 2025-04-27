@@ -14,11 +14,11 @@ impl SelectionSort{
     }
 
     pub fn start(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
-        let mut done = false;
-
         self.alg.shuffle(globals, thread, rl);      
         
         for i in 0..self.alg.len-1{
+            if rl.window_should_close() {return;}
+
             let mut min_idx = Clone::clone(&i); 
 
             for ii in i..self.alg.len{

@@ -1,4 +1,4 @@
-use crate::{algorithm::Algorithm, button::{self, Button}, globals::Globals};
+use crate::{algorithm::Algorithm, globals::Globals};
 use raylib::prelude::*;
 
 pub struct BubbleSort{

@@ -1,5 +1,5 @@
 use raylib::prelude::*;
-use crate::globals::{self, Globals};
+use crate::globals::Globals;
 use crate::algorithm::Algorithm;
 
 pub struct QuickSort {
@@ -21,6 +21,7 @@ impl QuickSort{
 
     fn quick_sort(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle,
                   low : usize, high : usize){
+        if rl.window_should_close() {return;}
         if low >= high {return;}
 
         let pivot_idx = self.partition(low, high, globals, thread, rl) as i32;

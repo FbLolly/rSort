@@ -41,6 +41,11 @@ impl Menu{
                     if ret {stop = true;}
                 }
 
+                if globals.fps != globals.fps_og {
+                    rl.set_target_fps(globals.fps_og);
+                    globals.fps = globals.fps_og;
+                }
+
                 let mut d = rl.begin_drawing(thread);
 
                 d.clear_background(Color::BLACK);

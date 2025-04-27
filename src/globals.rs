@@ -5,6 +5,9 @@ use crate::mouse::Mouse;
 
 pub struct Globals{
     pub fps : u32,
+    pub fps_og : u32,
+    pub fps_update : bool,
+    pub fps_change : u32,
     pub width : i32,
     pub height : i32,
     pub single_size : i32,
@@ -19,6 +22,9 @@ impl Globals {
     pub fn new() -> Globals{
         Self {
             fps : 60,
+            fps_og : 60,
+            fps_update : true,
+            fps_change : 10,
             width : 600,
             height : 400,
             single_size : 1,

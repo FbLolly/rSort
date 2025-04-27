@@ -17,8 +17,7 @@ fn generate_array(len : usize) -> Vec<i32>{
 
         if i % 2 == 0{add += 1;}
     }
-
-    return ret;
+    ret
 }
 
 impl Algorithm {
@@ -33,15 +32,37 @@ impl Algorithm {
         self.nums.swap(*i, *j);
     }
 
-    pub fn algorithm_graphics(&mut self, globals: &Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
-            rl.set_target_fps(globals.fps);
-            let mut d = rl.begin_drawing(thread);
+    fn manage_speeds(&mut self, globals: &mut Globals, rl : &mut RaylibHandle){
+        let change = (globals.fps_change/2) + (globals.fps/globals.fps_change);
 
-            d.clear_background(Color::BLACK);
-            self.paint_self(&mut d, globals);
+        if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_LEFT){
+            if change >= globals.fps {return;}
+            globals.fps -= change;
+        }
+        if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_RIGHT){
+            globals.fps += change;
+        }
+        
+        if globals.fps <= 1 {globals.fps = 1;}
+
+        globals.fps_update = true;
     }
 
-    pub fn shuffle(&mut self, globals: &Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
+    pub fn algorithm_graphics(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
+        self.manage_speeds(globals, rl);
+
+        if globals.fps_update {
+            globals.fps_update = false;
+            rl.set_target_fps(globals.fps);
+        }
+
+        let mut d = rl.begin_drawing(thread);
+
+        d.clear_background(Color::BLACK);
+        self.paint_self(&mut d, globals);
+    }
+
+    pub fn shuffle(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
         let finished = false;
         let mut rng = rand::rng();
 
