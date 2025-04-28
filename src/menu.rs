@@ -13,6 +13,7 @@ impl Menu{
                 Button::new(Color::PURPLE, Color::RAYWHITE, 100.0, 150.0, "selection_sort", globals, rl),
                 Button::new(Color::PURPLE, Color::RAYWHITE, 100.0, 200.0, "insertion_sort", globals, rl),
                 Button::new(Color::PURPLE, Color::RAYWHITE, 100.0, 250.0, "quick_sort", globals, rl),
+                Button::new(Color::PURPLE, Color::RAYWHITE, 100.0, 300.0, "_QUIT_", globals, rl),
             ],
         }
     }
@@ -23,11 +24,12 @@ impl Menu{
         if actives[1] {SelectionSort::new(globals.arr_lenght).start(globals, thread, rl);}
         if actives[2] {InsertionSort::new(globals.arr_lenght).start(globals, thread, rl);}
         if actives[3] {QuickSort::new(globals.arr_lenght).start(globals, thread, rl);}
+        if actives[4] {globals.acted_to_close = true;}
     }
 
     pub fn start(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
 
-        while !rl.window_should_close(){
+        while !(rl.window_should_close() || globals.acted_to_close){
             let mut stop = false;
             let mut actives : Vec<bool> = vec![];
             while (!rl.window_should_close()) && !stop{

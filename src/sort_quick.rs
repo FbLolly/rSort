@@ -21,7 +21,7 @@ impl QuickSort{
 
     fn quick_sort(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle,
                   low : usize, high : usize){
-        if rl.window_should_close() {return;}
+        if self.alg.window_should_close(rl, globals) {return;}
         if low >= high {return;}
 
         let pivot_idx = self.partition(low, high, globals, thread, rl) as i32;
@@ -35,6 +35,8 @@ impl QuickSort{
 
     fn partition(&mut self, low : usize, high : usize,
                  globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle) -> usize{
+        if high > self.alg.len-1  {return 0;}
+
         let pivot = self.alg.nums[high];
         let mut i : i32 = low as i32 - 1;
 
@@ -49,6 +51,6 @@ impl QuickSort{
         }
 
         self.alg.nums.swap((i + 1) as usize, high);
-        i as usize+1
+        (i+1) as usize
     }
 }

@@ -22,7 +22,7 @@ impl BubbleSort{
             done = true;
 
             for ii in 0..self.alg.len-1{
-                if rl.window_should_close(){return;}
+                if self.alg.window_should_close(rl, globals){return;}
 
                 if self.alg.nums[ii] > self.alg.nums[ii+1]{
                     done = false;

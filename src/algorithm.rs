@@ -32,20 +32,28 @@ impl Algorithm {
         self.nums.swap(*i, *j);
     }
 
+    pub fn window_should_close(&mut self, rl : &mut RaylibHandle, globals : &mut Globals) -> bool{
+        if globals.acted_to_close || rl.window_should_close() {return true;}
+        false
+    }
+
     fn manage_speeds(&mut self, globals: &mut Globals, rl : &mut RaylibHandle){
         let change = (globals.fps_change/2) + (globals.fps/globals.fps_change);
 
         if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_LEFT){
             if change >= globals.fps {return;}
             globals.fps -= change;
+            globals.fps_update = true;
         }
         if rl.is_key_pressed(raylib::consts::KeyboardKey::KEY_RIGHT){
             globals.fps += change;
+            globals.fps_update = true;
         }
         
-        if globals.fps <= 1 {globals.fps = 1;}
-
-        globals.fps_update = true;
+        if globals.fps <= 1 {
+            globals.fps = 1;
+            globals.fps_update = true;
+        }
     }
 
     pub fn algorithm_graphics(&mut self, globals: &mut Globals, thread : &RaylibThread, rl : &mut RaylibHandle){
@@ -69,7 +77,7 @@ impl Algorithm {
         for invi in 0..self.len{
             let i = self.len-invi-1;
 
-            if finished || rl.window_should_close(){
+            if finished || self.window_should_close(rl, globals){
                 break;
             }
 

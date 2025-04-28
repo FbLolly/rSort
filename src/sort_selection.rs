@@ -17,7 +17,7 @@ impl SelectionSort{
         self.alg.shuffle(globals, thread, rl);      
         
         for i in 0..self.alg.len-1{
-            if rl.window_should_close() {return;}
+            if self.alg.window_should_close(rl, globals) {return;}
 
             let mut min_idx = Clone::clone(&i); 
 

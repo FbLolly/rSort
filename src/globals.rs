@@ -4,6 +4,7 @@ use raylib::prelude::Font;
 use crate::mouse::Mouse;
 
 pub struct Globals{
+    pub acted_to_close : bool,
     pub fps : u32,
     pub fps_og : u32,
     pub fps_update : bool,
@@ -21,6 +22,7 @@ pub struct Globals{
 impl Globals {
     pub fn new() -> Globals{
         Self {
+            acted_to_close : false,
             fps : 60,
             fps_og : 60,
             fps_update : true,
