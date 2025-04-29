@@ -1,7 +1,0 @@
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/lib/libraylib.a
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/include/raylib.h
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/include/rlgl.h
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/include/raymath.h
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/lib/pkgconfig/raylib.pc
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/lib/cmake/raylib/raylib-config-version.cmake
-/home/archie/Desktop/cs/RUST/rSort/target/debug/build/raylib-sys-2e010474e0ebcbda/out/lib/cmake/raylib/raylib-config.cmake
